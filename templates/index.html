@@ -3,15 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>{{ name }}'s Watchlist</title>
+    <link rel="icon" href="{{ url_for('static', filename='icon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
 </head>
 <body>
-    <h2>{{ name }}'s Watchlist</h2>
+    <h2>
+        <img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/user.png') }}">
+        {{ name }}'s Watchlist
+    </h2>
     <p>{{ movies|length }} Movies</p>
-    <ul>
+    <ul class="movie-list">
         {% for movie in movies %}
         <li>{{ movie.title }} - {{ movie.year}}</li>
         {% endfor %}
     </ul>
+    <img alt="Welcome" class="welcome" src="{{ url_for('static', filename='images/welcome.gif') }}">
     <footer>
         <small> &copy; 2019 <a href = "https://github.com/detyang">DetYang</a></small>
     </footer>
